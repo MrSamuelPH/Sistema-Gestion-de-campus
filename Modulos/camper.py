@@ -58,7 +58,7 @@ def update():
         +   ACTUALIZAR UN CAMPER   +
         ++++++++++++++++++++++++++++
         """)
-        codigo = int(input("多Cual es el codigo del camper que desea eliminar?: "))
+        codigo = int(input("多Cual es el codigo del camper que se va actualizar?: "))
         read (codigo)
         print("""
         多 Estas seguro que deseas actualizar el camper ?
@@ -112,7 +112,10 @@ def delete():
         opc = int(input())
         match(opc):
             case 1: 
-                val = camper.pop(codigo)
+                if 0 <= codigo < len(camper):
+                 val = camper.pop(codigo)
+                else:
+                  print("El índice está fuera de rango. No se puede eliminar el elemento.")
                 os.system('cls')
                 val = getAll()[codigo-1]
                 print(f"""
